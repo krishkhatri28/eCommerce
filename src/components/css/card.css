@@ -1,0 +1,41 @@
+.note2{
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgb(143, 138, 138);
+}
+
+
+.card {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+  }
+
+.crousal{
+    text-align: center;
+    display: inline-block;
+}
+
+.cardTitle{
+    display:inline-block;
+}
+
+.card-price{
+    margin-bottom: 4px;
+    float: right;
+}
+
+.card-text{
+    display:inline-block;
+    text-align: justify;
+}
+
+.heart{
+    padding-top: .5rem;
+    float: right;
+    color: red;
+    size : 150%
+}
+
+.heart :hover{
+    color: black;
+}
