@@ -7,3 +7,13 @@
     font-size: 1.75rem;
     color: #fcbf1e;
 }
+
+.cart{
+    color: #120136 !important;
+    outline: none !important;
+    text-decoration: none !important;
+}
+
+.cart :focus{
+    outline: none !important;
+}

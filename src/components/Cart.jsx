@@ -1,33 +1,47 @@
-import React ,{useState} from "react";
-import IconButton from '@material-ui/core/IconButton';
+import React, { useState } from "react";
+import Cartitem from './Cartitem';
 
 import "./css/cartcard.css"
 
-function CartCard(props){
-    function handleClick(){
-        props.remove(props.id);
+function CartCard(props) {
+    const [cart, setCart] = useState([]);
+
+    function cartAdd(id) {
+        console.log(cart);
+        setCart([...cart, id]);
     }
 
-    return(
-    <div className="container">
-            <div className="row">
-                <div className="col-lg-2 col-md-2 col-sm-2">
-                <img className="card-img" src = {props.url}></img>
-                </div>
-                <div className="col-lg-9 col-md-9 col-sm-9">
-                <h5 className= "item-heading">{props.title}</h5>
-                    <p className="card-text">{props.content}</p>
-                </div>
-                <div className="col-lg-1 col-md-1 col-sm-1">
-                    <div>        
-                        <IconButton className="delButton delButton1" onClick={handleClick}>
-                            <i className="fas fa-minus"></i>
-                        </IconButton>
-                        <p className="delButton price">₹  {props.price}</p>
-                    </div>
-                </div>
+    function cartRemove(id) {
+        console.log(cart);
+        setCart(prevCart => {
+            return prevCart.filter((cartItem, index) => {
+                return id !== cartItem;
+            });
+        });
+    }
+
+    return (
+        <div className="card">
+
+            <div className="container">
+                <h1 className="cartText">Cart</h1>
+                <hr />
             </div>
-            <hr />
+
+
+            <Cartitem id="1"
+                key="1"
+                url="https://m.media-amazon.com/images/I/61VGYi4fkzL._AC_AA180_.jpg"
+                title="Yeh item ka naam hoga"
+                content="With supporting text below as a natural lead-in to additional content."
+                price="900.00"
+                remove={cartRemove}
+            />
+
+            <div className="container" >
+                <h5 style={{ display: "inline-block" }}>Subtotal ({cart.length} items):</h5>
+                <h3 style={{ float: "right" }}>₹  900.00</h3>
+            </div>
         </div>
     );
 }

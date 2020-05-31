@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
       width: 'auto',
     },
   },
-  
+
   searchIcon: {
     padding: theme.spacing(0, 2),
     height: '100%',
@@ -148,13 +149,13 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
-            <MailIcon />
+          <MailIcon />
         </IconButton>
         <p>Messages</p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
-            <NotificationsIcon />
+          <NotificationsIcon />
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
@@ -174,7 +175,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style =  {{color: "#000", backgroundColor: "#ffffff"}}>
+      <AppBar position="static" style={{ color: "#000", backgroundColor: "#ffffff" }}>
         <Toolbar>
           <IconButton
             edge="start"
@@ -184,8 +185,8 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title}  variant="h6" noWrap>
-            <strong>DOM</strong><span className = "dom">-</span>Services
+          <Typography className={classes.title} variant="h6" noWrap>
+            <a href="/" className="cart"><strong>DOM</strong><span className="dom">-</span>Services</a>
           </Typography>
 
 
@@ -206,10 +207,18 @@ export default function PrimarySearchAppBar() {
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
-             <i className="fas fa-shopping-cart"></i>
-            </IconButton>
-            <IconButton
+
+            <Link className="cart" to={`/cart`}>
+              <IconButton>
+                <i className="cart fas fa-shopping-cart"></i>
+              </IconButton>
+            </Link>
+            <Link className="cart" to={`/login`}>
+              <IconButton>
+                <i className="cart fas fa-user-circle"></i>
+              </IconButton>
+            </Link>
+            {/* <IconButton
               edge="end"
               aria-label="account of current user"
               aria-controls={menuId}
@@ -218,7 +227,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
+            </IconButton> */}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
